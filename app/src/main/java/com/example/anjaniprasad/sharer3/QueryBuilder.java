@@ -53,9 +53,9 @@ public class QueryBuilder {
     public String createDetails(Details details)
     {
         return String
-                .format("{\"fbid\": \"%s\", "
+                .format("{\"phone\": \"%s\", "
                                 + "\"lat\": \"%s\", \"lon\": \"%s\"}",
-                        details.fbid, details.lat, details.lon);
+                        details.phone, details.lat, details.lon);
     }
 
     public String setContactData(Details contact) {

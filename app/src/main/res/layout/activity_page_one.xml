@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/green"
+    tools:context="com.example.anjaniprasad.sharer3.PageOne">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <Button
+        android:layout_width="wrap_content"
+        android:text="See"
+        android:background="@color/colorPrimary"
+        android:layout_marginTop="150dp"
+        android:layout_marginLeft="155dp"
+        android:onClick="check"
+        android:layout_height="wrap_content" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:text="see contacts"
+            android:padding="12dp"
+            android:background="@color/colorPrimary"
+            android:layout_marginTop="55dp"
+            android:layout_marginLeft="140dp"
+            android:onClick="oldlist"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:text="UPD"
+            android:padding="12dp"
+            android:background="@color/colorPrimary"
+            android:layout_marginTop="55dp"
+            android:layout_marginLeft="140dp"
+            android:onClick="upda"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:text="logout"
+            android:padding="12dp"
+            android:background="@color/colorPrimary"
+            android:layout_marginTop="55dp"
+            android:layout_marginLeft="0dp"
+            android:onClick="logout"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>

@@ -5,7 +5,7 @@ package com.example.anjaniprasad.sharer3;
  */
 
 public class Details {
-    public String fbid;
+    public String phone;
     public String doc_id;
 
     public String getDoc_id() {
@@ -19,7 +19,7 @@ public class Details {
     public double lat,lon;
 
     public String getFbid() {
-        return fbid;
+        return phone;
     }
 
 
@@ -32,7 +32,7 @@ public class Details {
     }
 
     public void setFbid(String fbid) {
-        this.fbid = fbid;
+        this.phone = fbid;
     }
 
 

@@ -13,6 +13,10 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.firebase.client.Firebase;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
 import java.net.UnknownHostException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -24,10 +28,15 @@ public class MainActivity extends AppCompatActivity {
     double lat;
     double lon;
     public String addre;
+    //EditText edt;
+    Firebase url;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //edt= findViewById(R.id.edttext);
+        Firebase.setAndroidContext(this);
+        url = new Firebase("https://sharer3-b9ecc.firebaseio.com/");
     }
 
     public void loc(View view)
@@ -52,6 +61,17 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void nxtpage(View view)
+    {
+        Intent myIntent = new Intent(MainActivity.this, LoginActivity.class);
+        startActivity(myIntent);
+    }
+
+    public void get(View view)
+    {
+        Intent myIntent1 = new Intent(MainActivity.this, SeeActivity.class);
+        startActivity(myIntent1);
+    }
     public String GetAddress(double lat, double lon)
     {    String address;
         Geocoder geocoder;
@@ -108,13 +128,28 @@ public class MainActivity extends AppCompatActivity {
 
     public void dodo(View view) throws UnknownHostException {
         addre= GetAddress(lat,lon);
+        String pass="mypass";
+        String name="user-entered";
         Date d= new Date();
+        //Sring u="user1";
         String date1 = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date());
         Date currentTime = Calendar.getInstance().getTime();
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        DatabaseReference myRef = database.getReference("users").child("user2");
+//        url=url+u;
+        //DatabaseReference mRef = mDatabase.getReference("copyright");
+//        Firebase fbid1=url.child("fbid1");
+//        Firebase lat1=fbid1.child("lat");
+//        Firebase lon1=fbid1.child("lon");
+        myRef.child("phone").setValue("9790650451");
+        myRef.child("latitude").setValue(lat);
+        myRef.child("longitude").setValue(lon);
+        myRef.child("pass").setValue(pass);
+        myRef.child("name").setValue(name);
         Details det = new Details();
         det.lat =lat ;
         det.lon = lon ;
-        det.fbid = "XYZ";
+        det.phone = "9790650451";
         //det.userid = "AP";
         //det.myid="AP";
         SaveAsyncTask tsk = new SaveAsyncTask();
